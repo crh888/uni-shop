@@ -50,7 +50,9 @@ item2.image_width + 'rpx'}"></image>
 </template>
 
 <script>
+  import badgeMix from '@/mixins/tabbar-badges.js'
 	export default {
+    mixins:[badgeMix],
 		data() {
 			return {
 				// 轮播图的数据
