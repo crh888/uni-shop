@@ -2,13 +2,13 @@
 	<view class="goods-item">
 	  <!-- 左侧盒子 -->
 	  <view class="goods-item-left">
-        <radio :checked="goods.goods_state" color="#C00000" v-if="showRadio" @click="radioClickHandler" />
-	    <image :src="goods.goods_small_logo || defaultPic" class="goods-pic"></image>
+      <radio :checked="goods.goods_state" color="#C00000" v-if="showRadio" @click="radioClickHandler" />
+	    <image :src="goods.goods_small_logo || defaultPic" class="goods-pic" @click="gotoDetail"></image>
 	  </view>
 	  <!-- 右侧 盒子-->
 	  <view class="goods-item-right">
 	    <!-- 商品的名字 -->
-	    <view class="goods-name">{{goods.goods_name}}</view>
+	    <view class="goods-name" @click="gotoDetail">{{goods.goods_name}}</view>
 	    <!-- 商品价格-->
 	    <view class="goods-info-box">
 	      <view class="goods-price">￥{{goods.goods_price | toFixed}}</view>
@@ -57,6 +57,9 @@
           // 最新的商品数量
           goods_count: +val
         })
+      },
+      gotoDetail() {
+        this.$emit('click')
       }
     }
 	}

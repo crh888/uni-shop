@@ -11,7 +11,7 @@
     <uni-swipe-action>
       <block v-for="(goods, i) in cart" :key="i">
         <uni-swipe-action-item :options="options" @click="swipeActionClickHandler(goods)">
-          <my-goods :goods="goods" :show-radio="true" @radio-change="radioChangeHandler" @num-change="numChangeHandler"></my-goods>
+          <my-goods :goods="goods" :show-radio="true" @radio-change="radioChangeHandler" @num-change="numChangeHandler"  @click="gotoDetail(goods)"></my-goods>
         </uni-swipe-action-item>
       </block>
     </uni-swipe-action>
@@ -55,6 +55,11 @@
       },
       swipeActionClickHandler(goods) {
         this.removeGoodsById(goods.goods_id)
+      },
+      gotoDetail(goods) {
+        uni.navigateTo({
+          url: '/subpkg/goods_detail/goods_detail?goods_id=' + goods.goods_id
+        })
       }
     }
 	}

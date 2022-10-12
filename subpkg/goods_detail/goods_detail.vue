@@ -105,6 +105,8 @@
           uni.switchTab({
             url: '/pages/cart/cart'
           })
+        } else {
+          uni.$showMsg('此功能正在开发中...')
         }
       },
       // 右侧按钮点击事件处理函数

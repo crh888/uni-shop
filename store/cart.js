@@ -48,6 +48,12 @@ export default {
       // 本地化存储购物车数据
       this.commit('m_cart/saveToStorage') 
     },
+    // 清空购物车所有商品
+    removeBuyGoods(state) {
+      state.cart = state.cart.filter(x => !x.goods_state)
+      // 本地化存储购物车数据
+      this.commit('m_cart/saveToStorage') 
+    },
     updateAllGoodsState(state, newState) {
       state.cart.forEach(x => x.goods_state = newState)
       // 本地化存储购物车数据
